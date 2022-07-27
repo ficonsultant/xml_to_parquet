@@ -1,0 +1,73 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "jsontopar.json",
+				"container": "newcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"soap:Envelope": {
+					"type": "object",
+					"properties": {
+						"soap:Body": {
+							"type": "object",
+							"properties": {
+								"RetrieveClientExtractionListResponse": {
+									"type": "object",
+									"properties": {
+										"RetrieveClientExtractionListResult": {
+											"type": "object",
+											"properties": {
+												"ExtractionClientRecord": {
+													"type": "object",
+													"properties": {
+														"ClientListCount": {
+															"type": "integer"
+														},
+														"ExtractionClientList": {
+															"type": "object",
+															"properties": {
+																"ExtractionClientListType": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"ClientID": {
+																				"type": "integer"
+																			},
+																			"ClientInfoID": {
+																				"type": "integer"
+																			},
+																			"ClientName": {
+																				"type": "string"
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
