@@ -1,0 +1,98 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ClientListCount']"
+								},
+								"sink": {
+									"name": "ClientListCount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['ClientID']"
+								},
+								"sink": {
+									"name": "ClientID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['ClientInfoID']"
+								},
+								"sink": {
+									"name": "ClientInfoID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['ClientName']"
+								},
+								"sink": {
+									"name": "ClientName",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType']"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
