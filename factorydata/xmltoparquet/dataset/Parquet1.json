@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "myparfile.parquet",
+				"fileName": "myxmlparfile.parquet",
 				"container": "newcontainer"
 			},
 			"compressionCodec": "snappy"
