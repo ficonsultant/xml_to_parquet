@@ -52,7 +52,7 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "['ClientID']"
+									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType'][0]['ClientID']"
 								},
 								"sink": {
 									"name": "ClientID",
@@ -61,7 +61,7 @@
 							},
 							{
 								"source": {
-									"path": "['ClientInfoID']"
+									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType'][0]['ClientInfoID']"
 								},
 								"sink": {
 									"name": "ClientInfoID",
@@ -70,7 +70,7 @@
 							},
 							{
 								"source": {
-									"path": "['ClientName']"
+									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType'][0]['ClientName']"
 								},
 								"sink": {
 									"name": "ClientName",
@@ -87,7 +87,7 @@
 								}
 							}
 						],
-						"collectionReference": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType']"
+						"collectionReference": ""
 					}
 				},
 				"inputs": [
