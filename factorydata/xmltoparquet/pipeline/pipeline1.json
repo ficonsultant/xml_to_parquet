@@ -52,15 +52,6 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ClientListCount']"
-								},
-								"sink": {
-									"name": "ClientListCount",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
 									"path": "['ClientID']"
 								},
 								"sink": {
@@ -83,6 +74,15 @@
 								},
 								"sink": {
 									"name": "ClientName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ClientListCount']"
+								},
+								"sink": {
+									"name": "ClientListCount",
 									"type": "String"
 								}
 							}
