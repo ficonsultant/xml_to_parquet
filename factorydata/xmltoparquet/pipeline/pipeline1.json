@@ -52,42 +52,69 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType'][0]['ClientID']"
+									"path": "['author']"
 								},
 								"sink": {
-									"name": "ClientID",
+									"name": "author",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType'][0]['ClientInfoID']"
+									"path": "['title']"
 								},
 								"sink": {
-									"name": "ClientInfoID",
+									"name": "title",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ExtractionClientList']['ExtractionClientListType'][0]['ClientName']"
+									"path": "['genre']"
 								},
 								"sink": {
-									"name": "ClientName",
+									"name": "genre",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['soap:Envelope']['soap:Body']['RetrieveClientExtractionListResponse']['RetrieveClientExtractionListResult']['ExtractionClientRecord']['ClientListCount']"
+									"path": "['price']"
 								},
 								"sink": {
-									"name": "ClientListCount",
+									"name": "price",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['publish_date']"
+								},
+								"sink": {
+									"name": "publish_date",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['description']"
+								},
+								"sink": {
+									"name": "description",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['@id']"
+								},
+								"sink": {
+									"name": "@@id",
 									"type": "String"
 								}
 							}
 						],
-						"collectionReference": ""
+						"collectionReference": "$['catalog']['book']"
 					}
 				},
 				"inputs": [
