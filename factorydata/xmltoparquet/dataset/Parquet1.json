@@ -13,7 +13,7 @@
 				"fileName": "myxmlparfile.parquet",
 				"container": "newcontainer"
 			},
-			"compressionCodec": "snappy"
+			"compressionCodec": "none"
 		},
 		"schema": []
 	}
